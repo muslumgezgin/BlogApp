@@ -7,7 +7,7 @@ using Blog.Application.Common.Exceptions;
 using Blog.Application.Features.AuthorFeatures.Commands.Create;
 using Blog.Application.Features.AuthorFeatures.Commands.Delete;
 
-namespace Blog.Application.FunctionalTests.Features.PostFeaturesTests.Commands;
+namespace Blog.Application.FunctionalTests.Features.AuthorFeaturesTests.Commands;
 using static Testing;
 
 public class CreateAuthorTest : BaseTestFixture
