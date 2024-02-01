@@ -1,4 +1,3 @@
-using AutoMapper;
 using Blog.Application.Common.Dtos.AuthorDtos;
 using Blog.Application.Common.Dtos.PostDtos;
 using Blog.Application.Common.Exceptions;
@@ -21,14 +20,7 @@ public class GetPostByIdQueryHandler : IRequestHandler<GetPostByIdQuery, Respons
     {
 
 
-        Post? entity = await this._unitOfWork.PostRepository.GetByIdAsync(request.Id);
-
-        if (entity == null)
-        {
-            throw new NotFoundException(nameof(Post), key: request.Id);
-        }
-
-
+        Post? entity = await this._unitOfWork.PostRepository.GetByIdAsync(request.Id) ?? throw new NotFoundException(nameof(Post), key: request.Id);
         AuthorModelDto? authorModelDto = null;
 
         if (request.IncludeAuthor)
@@ -43,7 +35,7 @@ public class GetPostByIdQueryHandler : IRequestHandler<GetPostByIdQuery, Respons
 
         var postModelWithAuthorDto = new PostModelWithAuthorDto
         {
-
+            Id = entity.Id,
             Title = entity.Title,
             Content = entity.Content,
             Description = entity.Description,

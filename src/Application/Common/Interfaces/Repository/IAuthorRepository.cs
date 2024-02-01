@@ -1,14 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Blog.Application.Common.Dtos.AuthorDtos;
 using Blog.Application.Common.Interfaces.Repository.Base;
+using Blog.Application.Features.AuthorFeatures.Queries.GetAll;
 using Blog.Domain.Entities;
 
-namespace Blog.Application.Common.Interfaces.Repository
+namespace Blog.Application.Common.Interfaces.Repository;
+
+public interface IAuthorRepository : IRepository<Author>
 {
-    public interface IAuthorRepository : IRepository<Author>
-    {
-     
-    }
+    Task<List<AuthorModelDto>> GetAllAuthorsAsync(GetAuthorsQuery request);
 }

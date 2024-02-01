@@ -49,8 +49,6 @@ public class PostgresqlTestDatabase : ITestDatabase
             throw;
         }
 
-
-
     }
 
     public async Task ResetAsync()

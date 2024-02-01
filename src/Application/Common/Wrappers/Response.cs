@@ -10,11 +10,11 @@ public interface IResponse
 }
 public class Response<T> : IResponse
 {
-    public T Data { get; set; }
+    public T? Data { get; set; }
     public bool Succeeded { get; set; } = false;
 
-    public string FailureType { get; set; }
-    public IDictionary<string, string[]> Failures { get; }
+    public string FailureType { get; set; } = string.Empty;
+    public IDictionary<string, string[]> Failures { get; } = new Dictionary<string, string[]>();
 
     public Response()
     {
@@ -30,7 +30,7 @@ public class Response<T> : IResponse
         this.Succeeded = false;
         this.Failures = failures;
         this.FailureType = failureType;
-        Data = default(T);
+        Data = default;
     }
 }
 
@@ -38,8 +38,8 @@ public class Response : IResponse
 {
     public bool Succeeded { get; set; } = false;
 
-    public string FailureType { get; set; }
-    public IDictionary<string, string[]> Failures { get; }
+    public string FailureType { get; set; } = string.Empty;
+    public IDictionary<string, string[]> Failures { get; } = new Dictionary<string, string[]>();
 
     public Response(bool success)
     {

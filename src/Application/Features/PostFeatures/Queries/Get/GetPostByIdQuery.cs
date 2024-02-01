@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Blog.Application.Common.Dtos.PostDtos;
 using Blog.Application.Common.Wrappers;
 using MediatR;

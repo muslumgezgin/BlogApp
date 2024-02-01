@@ -9,7 +9,11 @@ builder.Services.AddInfrastructureServices(builder.Configuration);
 
 builder.Services.AddApplicationServices();
 
-builder.Services.AddControllers();
+
+builder.Services.AddControllers(opt=>{
+    opt.FormatterMappings.SetMediaTypeMappingForFormat("xml", "application/xml");
+    opt.FormatterMappings.SetMediaTypeMappingForFormat("json", "application/json");
+});
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
